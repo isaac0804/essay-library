@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { EssayCard } from '../components/EssayCard';
 import { SearchContainer } from '../components/search/SearchContainer';
 import { useEssaySearch } from '../hooks/useEssaySearch';
 import essayData from '../data/essays.json';
+import { themeChange } from 'theme-change';
+import { Essay } from '../types/essay';
 
 export const HomePage: React.FC = () => {
   const {
@@ -11,14 +13,50 @@ export const HomePage: React.FC = () => {
     selectedLanguage,
     setSelectedLanguage,
     selectedTags,
+    setSelectedTags,
     availableTags,
     filteredEssays,
     handleTagSelect,
     handleTagRemove,
-  } = useEssaySearch(essayData);
+  } = useEssaySearch(essayData as Essay[]);
+
+  useEffect(() => {
+    themeChange(false); // Initialize theme change
+  }, []);
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="bg-blue-600 text-white py-12 mb-8 rounded-lg shadow-lg">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl font-bold mb-4">Welcome to Our Essay Collection</h1>
+          <p className="text-lg py-6">Explore a wide range of essays on various topics.</p>
+          
+            {/* DaisyUI Stats */}
+            <div className="stats shadow w-full">
+              <div className="stat">
+                <div className="stat-title">Total Essays</div>
+                <div className="stat-value">{essayData.length}</div>
+                <div className="stat-desc">From all categories</div>
+              </div>
+
+              <div className="stat">
+                <div className="stat-title">Languages</div>
+                <div className="stat-value">
+                  {new Set(essayData.map((essay) => essay.language)).size}
+                </div>
+                <div className="stat-desc">Available in the collection</div>
+              </div>
+
+              <div className="stat">
+                <div className="stat-title">Unique Tags</div>
+                <div className="stat-value">{availableTags.length}</div>
+                <div className="stat-desc">Across all essays</div>
+              </div>
+            </div>
+            {/* End DaisyUI Stats */}
+        </div>
+      </div>
+
       <SearchContainer
         searchTerm={searchTerm}
         selectedLanguage={selectedLanguage}

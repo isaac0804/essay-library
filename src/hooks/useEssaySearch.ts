@@ -47,6 +47,7 @@ export const useEssaySearch = (essays: Essay[]) => {
     selectedLanguage,
     setSelectedLanguage,
     selectedTags,
+    setSelectedTags,
     availableTags,
     filteredEssays,
     handleTagSelect,

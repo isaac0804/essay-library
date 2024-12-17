@@ -1,6 +1,8 @@
 export interface Essay {
+  uuid: string;
   essay_title: string;
   essay: string;
+  language: string;
   terms: {
     term: string;
     explanation: string;
