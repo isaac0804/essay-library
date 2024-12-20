@@ -5,9 +5,9 @@ import { BookOpen, User, Info, MessageSquare, Globe } from 'lucide-react';
 export const Navigation: React.FC = () => {
   const navItems = [
     { to: '/', icon: BookOpen, label: 'Essays' },
-    { to: '/profile', icon: User, label: 'Profile' },
+    // { to: '/profile', icon: User, label: 'Profile' },
     { to: '/about', icon: Info, label: 'About' },
-    { to: '/feedback', icon: MessageSquare, label: 'Feedback' },
+    // { to: '/feedback', icon: MessageSquare, label: 'Feedback' },
   ];
 
   return (
@@ -26,7 +26,7 @@ export const Navigation: React.FC = () => {
                   </label>
                 </div>
                 <Globe className="w-8 h-8 text-blue-600" />
-                <span className="ml-2 text-xl font-bold text-gray-900">Essay Prep Hub</span>
+                <span className="ml-2 text-xl font-bold text-gray-900">Essay Library</span>
               </div>
               <div className="hidden md:flex space-x-4">
                 {navItems.map(({ to, icon: Icon, label }) => (

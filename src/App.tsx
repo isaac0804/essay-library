@@ -16,8 +16,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/essay/:uuid" element={<EssayPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/feedback" element={<FeedbackPage />} />
+          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+          {/* <Route path="/feedback" element={<FeedbackPage />} /> */}
         </Routes>
       </div>
     </Router>
