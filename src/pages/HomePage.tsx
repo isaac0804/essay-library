@@ -27,7 +27,7 @@ export const HomePage: React.FC = () => {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="bg-blue-600 text-white py-12 mb-8 rounded-lg shadow-lg">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center px-6">
           <h1 className="text-4xl font-bold mb-4">Welcome to Our Essay Collection</h1>
           <p className="text-lg py-6">Explore a wide range of essays on various topics.</p>
           
