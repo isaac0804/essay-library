@@ -134,7 +134,7 @@ export const HomePage: React.FC = () => {
         {!isLoading &&
           (filteredEssays.length > 0 ? (
             filteredEssays.map((essay) => (
-              <EssayCard key={essay.essay_title} essay={essay} />
+              <EssayCard key={essay.title} essay={essay} />
             ))
           ) : (
             <div className="col-span-full text-center py-12">

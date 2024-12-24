@@ -6,7 +6,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { FeedbackPage } from './pages/FeedbackPage';
 import { EssayPage } from './pages/EssayPage';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 import SupabaseContext from './supabaseContext';
 
 // Use import.meta.env to access environment variables
