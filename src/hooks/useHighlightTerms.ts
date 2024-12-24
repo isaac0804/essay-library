@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
-import { Term } from '../types/essay';
+import { Glossary } from '../types/essay';
 
-export const useHighlightTerms = (content: string, terms: Term[]) => {
+export const useHighlightTerms = (content: string, glossaries: Glossary[]) => {
   return useMemo(() => {
-    if (!terms.length) return content.split('\n\n');
+    if (!glossaries.length) return content.split('\n\n');
 
     const paragraphs = content.split('\n\n');
     return paragraphs.map(paragraph => {
       let highlightedParagraph = paragraph;
-      terms.forEach(({ term, explanation }) => {
+      glossaries.forEach(({ term, explanation }) => {
         const regex = new RegExp(`(${term})`, 'gi');
         highlightedParagraph = highlightedParagraph.replace(
           regex,
@@ -17,5 +17,5 @@ export const useHighlightTerms = (content: string, terms: Term[]) => {
       });
       return highlightedParagraph;
     });
-  }, [content, terms]);
+  }, [content, glossaries]);
 };

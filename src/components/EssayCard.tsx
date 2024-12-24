@@ -16,13 +16,13 @@ export const EssayCard: React.FC<EssayCardProps> = ({ essay, className = '' }) =
     >
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-2xl font-bold text-gray-800 line-clamp-2 hover:text-blue-600 transition-colors duration-200">
-          {essay.essay_title}
+          {essay.title}
         </h3>
         <BookOpen className="text-blue-600 w-6 h-6 flex-shrink-0 ml-4" />
       </div>
       <p className="text-gray-600 mb-4 relative">
         <span className="line-clamp-3">
-          {essay.essay.substring(0, 150)}...
+          {essay.content.substring(0, 150)}...
         </span>
         <span className="absolute bottom-0 right-0 h-1/2 w-full bg-gradient-to-b from-transparent to-white"></span>
       </p>
