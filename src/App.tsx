@@ -8,6 +8,8 @@ import { FeedbackPage } from './pages/FeedbackPage';
 import { EssayPage } from './pages/EssayPage';
 import { createClient } from '@supabase/supabase-js';
 import SupabaseContext from './supabaseContext';
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from '@vercel/analytics/react';
 
 // Use import.meta.env to access environment variables
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -22,20 +24,24 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 function App() {
   return (
-    <SupabaseContext.Provider value={{ supabase }}>
-    <Router>
-      <div className="min-h-screen bg-gray-50">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/essay/:uuid" element={<EssayPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          {/* <Route path="/profile" element={<ProfilePage />} /> */}
-          {/* <Route path="/feedback" element={<FeedbackPage />} /> */}
-        </Routes>
-      </div>
-    </Router>
-    </SupabaseContext.Provider>
+    <div>
+      <SupabaseContext.Provider value={{ supabase }}>
+      <Router>
+        <div className="min-h-screen bg-gray-50">
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/essay/:uuid" element={<EssayPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            {/* <Route path="/profile" element={<ProfilePage />} /> */}
+            {/* <Route path="/feedback" element={<FeedbackPage />} /> */}
+          </Routes>
+        </div>
+      </Router>
+      </SupabaseContext.Provider>
+      <SpeedInsights />
+      <Analytics />
+    </div>
   );
 }
 
